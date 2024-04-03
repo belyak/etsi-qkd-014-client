@@ -245,9 +245,10 @@ class DataKeyContainer(QKD014Data):
         Raises:
             Exception: if the data does not meet the specifications.
         """
+        keys_key = "keys" if "keys" in data else "Keys"
         try:
             self.keys = []
-            for key_data in data["keys"]:
+            for key_data in data[keys_key]:
                 self.keys.append(
                     DataKey(
                         key_data["key_ID"],
